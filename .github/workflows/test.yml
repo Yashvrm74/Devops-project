@@ -1,0 +1,21 @@
+name: Run Test Script
+
+on:
+  push:
+    branches:
+      - main
+      - dev
+
+jobs:
+  run-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Give permission to run script
+        run: chmod +x test.sh
+
+      - name: Run test script
+        run: ./test.sh
